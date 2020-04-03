@@ -6,7 +6,7 @@ use std::ops;
 /// and dot product.
 /// Division by a scalar is not supported, as the resulting values
 /// may need to be truncated to integers, possibly providing unwanted behaviour.
-#[derive(Eq, PartialEq, Clone, Copy, Debug)]
+#[derive(Eq, PartialEq, Clone, Copy, Hash, Debug)]
 pub struct Point {
     pub x: i32,
     pub y: i32,
