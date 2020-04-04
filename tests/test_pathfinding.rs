@@ -1,4 +1,6 @@
-use lazarust::{basemap::BaseMap, distance::DistanceType, pathfinding::a_star_search, point::Point};
+use lazarust::{
+    basemap::BaseMap, distance::DistanceType, pathfinding::a_star_search, point::Point,
+};
 use lazy_static::lazy_static;
 
 #[derive(Clone)]
@@ -92,7 +94,7 @@ fn a_star_with_diagonals() {
         &*SIMPLEMAP,
         DistanceType::Manhattan,
     )
-    .unwrap(); // Path must exist
+    .expect("No path was found");
     assert_eq!(6, path.len());
     assert_eq!(Point::new(2, 4), path[0]);
     assert_eq!(Point::new(3, 3), path[1]);
@@ -133,7 +135,7 @@ fn a_star_with_varying_costs() {
         &cloned_map,
         DistanceType::Manhattan,
     )
-    .unwrap();
+    .expect("No path was found");
     assert_eq!(3, path.len());
     assert_eq!(Point::new(4, 3), path[0]);
     assert_eq!(Point::new(3, 4), path[1]);
@@ -148,6 +150,6 @@ fn a_star_to_same_point() {
         &*SIMPLEMAP,
         DistanceType::Manhattan,
     )
-    .unwrap(); // Path will exist but will be empty
+    .expect("No path was found"); // Path will exist but will be empty
     assert!(path.is_empty());
 }
