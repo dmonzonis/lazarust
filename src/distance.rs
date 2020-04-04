@@ -1,20 +1,20 @@
 use crate::point::Point;
 use std::cmp;
 
-pub enum DistanceAlg {
+pub enum DistanceType {
     Euclidean,
     Manhattan,
     Chebyshev,
     Octile,
 }
 
-impl DistanceAlg {
+impl DistanceType {
     pub fn distance(&self, a: Point, b: Point) -> f32 {
         match self {
-            DistanceAlg::Euclidean => euclidean_distance(a, b),
-            DistanceAlg::Manhattan => manhattan_distance(a, b),
-            DistanceAlg::Chebyshev => chebyshev_distance(a, b),
-            DistanceAlg::Octile => octile_distance(a, b),
+            DistanceType::Euclidean => euclidean_distance(a, b),
+            DistanceType::Manhattan => manhattan_distance(a, b),
+            DistanceType::Chebyshev => chebyshev_distance(a, b),
+            DistanceType::Octile => octile_distance(a, b),
         }
     }
 }

@@ -1,4 +1,4 @@
-use crate::{distance::DistanceAlg, basemap::BaseMap, point::Point};
+use crate::{distance::DistanceType, basemap::BaseMap, point::Point};
 use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashMap};
 
@@ -48,7 +48,7 @@ pub fn a_star_search<T: BaseMap>(
     origin: Point,
     goal: Point,
     map: &T,
-    heuristic: DistanceAlg,
+    heuristic: DistanceType,
 ) -> Option<Vec<Point>> {
     let mut cost_to_node: HashMap<Point, f32> = HashMap::new();
     cost_to_node.insert(origin, 0.0);
