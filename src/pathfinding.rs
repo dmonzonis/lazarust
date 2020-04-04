@@ -36,7 +36,6 @@ fn construct_path(origin: Point, goal: Point, previous: HashMap<Point, Point>) -
         path.push(current);
         current = *previous.get(&current).unwrap();
     }
-    path.push(origin);
     path.reverse();
     path
 }
